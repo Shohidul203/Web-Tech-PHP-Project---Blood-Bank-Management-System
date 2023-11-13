@@ -10,7 +10,7 @@ $dbname = 'project';
 $dbuser = 'root';
 $dbpassword = '';
 
-$con = mysqli_connect($dbhost, $dbuser, $dbpassword, $dbname,);
+$con = mysqli_connect($dbhost, $dbuser, $dbpassword, $dbname, );
 
 // $name = $_POST["name"];
 // $number = $_POST["number"];
@@ -34,17 +34,29 @@ $con = mysqli_connect($dbhost, $dbuser, $dbpassword, $dbname,);
             <td>Blood Type</td>
             <td>Password</td>
             <td>City</td>
-            
+
         </tr>
         <?php for ($i = 0; $i < count($users); $i++) { ?>
             <tr>
-                
-                <td><?= $users[$i]['Name'] ?></td>
-                <td><?= $users[$i]['Number'] ?></td>
-                <td><?= $users[$i]['Email'] ?></td>
-                <td><?= $users[$i]['Blood Type'] ?></td>
-                <td><?= $users[$i]['password'] ?></td>
-                <td><?= $users[$i]['City'] ?></td>
+
+                <td>
+                    <?= $users[$i]['Name'] ?>
+                </td>
+                <td>
+                    <?= $users[$i]['Number'] ?>
+                </td>
+                <td>
+                    <?= $users[$i]['Email'] ?>
+                </td>
+                <td>
+                    <?= $users[$i]['Blood Type'] ?>
+                </td>
+                <td>
+                    <?= $users[$i]['password'] ?>
+                </td>
+                <td>
+                    <?= $users[$i]['City'] ?>
+                </td>
             </tr>
 
         <?php } ?>
@@ -57,4 +69,3 @@ $con = mysqli_connect($dbhost, $dbuser, $dbpassword, $dbname,);
         </tr>
     </table>
 </center>
-
