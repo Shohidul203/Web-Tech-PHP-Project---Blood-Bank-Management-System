@@ -16,14 +16,14 @@ require_once('../models/functional.php');
 $status = login($username, $password);
 
 if ($status) {
-    setcookie('flag', 'true', time() + 3600, '/');
-    setcookie('user', $username, time() + 3600, '/');
+  setcookie('flag', 'true', time() + 3600, '/');
+  setcookie('user', $username, time() + 3600, '/');
 
   //  echo "ok";
-    
-    header('location: ../view/donarHome.php');
+
+  header('location: ../view/donarHome.php');
 } else {
-   // echo 'Unknown User!';
+  // echo 'Unknown User!';
 }
 
 ?>

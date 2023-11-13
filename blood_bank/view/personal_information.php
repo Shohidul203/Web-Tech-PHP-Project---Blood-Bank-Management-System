@@ -51,6 +51,7 @@ $con = mysqli_connect($dbhost, $dbuser, $dbpassword, $dbname,);
 
         <tr>
             <td colspan="6" align="right">
+                <a href="editProfile.php">Edit </a>&nbsp;&nbsp;&nbsp;&nbsp;
                 <a href="donarHome.php">Go Home</a>
             </td>
         </tr>

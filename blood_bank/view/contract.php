@@ -12,11 +12,11 @@
             <legend>
                 <h3> Hospital</h3>
             </legend>
-                <h3> United Hospital Limited</h3>
-                <p> Location: Gulshan, Dhaka <br>
+                    <h3> United Hospital Limited</h3>
+                    <p> Location: Gulshan, Dhaka <br>
                     Contact: +880-2-88360001</p>
 
-                <h3>Apollo Hospitals Dhaka</h3>
+                    <h3>Apollo Hospitals Dhaka</h3>
                     <p>Location: Bashundhara R/A, Dhaka <br>
                     Contact: +880-2-55037242   </p>
 
