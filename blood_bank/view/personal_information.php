@@ -22,18 +22,19 @@ $con = mysqli_connect($dbhost, $dbuser, $dbpassword, $dbname, );
 ?>
 
 <center>
-    <table border="1" cellpadding="5" cellspacing="0">
+    <table border="1" cellpadding="6" cellspacing="0">
         <tr>
-            <td colspan="6" align="CENTER">Personal Information</td>
+            <td colspan="7" align="CENTER"><b>Personal Information</b></td>
         </tr>
 
-        <tr>
-            <td>Name</td>
-            <td>Number</td>
-            <td>Email</td>
-            <td>Blood Type</td>
-            <td>Password</td>
-            <td>City</td>
+        <tr align="CENTER">
+            <td><b>Name</td>
+            <td><b>Number</td>
+            <td><b>Email</td>
+            <td><b>Blood Type</td>
+            <td><b>Password</td>
+            <td><b>City</td>
+            <td><b>availability</b></td>
 
         </tr>
         <?php for ($i = 0; $i < count($users); $i++) { ?>
@@ -57,12 +58,15 @@ $con = mysqli_connect($dbhost, $dbuser, $dbpassword, $dbname, );
                 <td>
                     <?= $users[$i]['City'] ?>
                 </td>
+                <td>
+                    <?= $users[$i]['availability'] ?>
+                </td>
             </tr>
 
         <?php } ?>
 
         <tr>
-            <td colspan="6" align="right">
+            <td colspan="7" align="right">
                 <a href="editProfile.php">Edit </a>&nbsp;&nbsp;&nbsp;&nbsp;
                 <a href="donarHome.php">Go Home</a>
             </td>

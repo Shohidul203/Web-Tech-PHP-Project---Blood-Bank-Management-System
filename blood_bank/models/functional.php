@@ -62,13 +62,13 @@ function profile()
 }
 
 
-function profileUpdate($name, $city, $email, $number)
+function profileUpdate($name, $city, $email, $number, $availability)
 {
     //$username = $_COOKIE['user'];
     // $users = getUser($_COOKIE['user']);
 
     $con = getConnection();
-    $sql = "UPDATE donarregistration SET Name = '{$name}', City = '{$city}', Email = '{$email}', Number = '{$number}' WHERE Email = '{$email}';";
+    $sql = "UPDATE donarregistration SET Name = '{$name}', City = '{$city}', Email = '{$email}', Number = '{$number}', availability = '{$availability}' WHERE Email = '{$email}'";
     $result = mysqli_query($con, $sql);
     // $user = mysqli_fetch_assoc($result);
 

@@ -26,14 +26,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $city = $_REQUEST['city'];
+
     $number = $_REQUEST['number'];
+
+    $availability = $_REQUEST['availability'];
 
     if (!$flag) {
         include '../controls/editProfileCK.php';
-        donarProfileUpdate($name, $city, $email, $number);
+        donarProfileUpdate($name, $city, $email, $number, $availability);
     }
 
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -46,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-    <?php include_once 'header.php'; ?>
+
 
     <section>
         <table border="0" width="100%">
@@ -80,6 +85,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <br /><br />
                                         City:
                                         <input type="text" name="city" value="<?= $user[0]['City'] ?>" />
+                                        <br /><br />
+                                        Availability:
+                                        <input type="text" name="availability"
+                                            value="<?= $user[0]['availability'] ?>" />
 
 
                                         <br /><br />

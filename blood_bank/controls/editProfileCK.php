@@ -1,6 +1,6 @@
 <?php
 
-function donarProfileUpdate($name, $city, $email, $number)
+function donarProfileUpdate($name, $city, $email, $number, $availability)
 {
     session_start();
 
@@ -15,6 +15,6 @@ function donarProfileUpdate($name, $city, $email, $number)
     // $_SESSION['user'] = $user;
 
     require_once('../models/functional.php');
-    profileUpdate($name, $city, $email, $number);
+    profileUpdate($name, $city, $email, $number, $availability);
     header('location: ../view/donarHome.php');
 }
