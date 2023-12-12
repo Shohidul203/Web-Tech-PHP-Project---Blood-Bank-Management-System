@@ -1,3 +1,47 @@
+
+function registration() {
+  let name = document.getElementById("name").value;
+  let number = document.getElementById("number").value;
+  let email = document.getElementById("email").value;
+  let blood = document.getElementById("blood").value;
+  let password = document.getElementById("password").value;
+  let city = document.getElementById("city").value;
+  let availability = document.getElementById("availability").value;
+
+  if (name === "" || number === "" || email === "" || blood === "" || password === "" || city === "" || availability === "") {
+    alert("Please fill up all the inputs!");
+    return;
+  }
+
+}
+
+function login() {
+  let password_login = document.getElementById("password_login").value;
+  let email_login = document.getElementById("email_login").value
+  if (password_login === "" || email_login === "") {
+    alert("Please fill up all the inputs!");
+    return;
+  }
+
+
+}
+
+
+// function login() {
+//   let password_login = document.getElementById("password_login").value.trim();
+//   let email_login = document.getElementById("email_login").value.trim();
+
+//   if (!password_login || !email_login) {
+//     alert("Please fill up all the inputs!");
+//     return;
+//   }
+
+//   // Your login logic or further validation goes here
+//   // For example, you can make an AJAX request for authentication
+// }
+
+
+
 function findDonor() {
   let blood = document.getElementById("blood").value;
   let city = document.getElementById("city").value;
@@ -52,4 +96,29 @@ function changePassword() {
   } else if (password != password2) {
     alert("Password didn't match! Try again");
   }
+
+
+
+  let xhttp = new XMLHttpRequest();
+  xhttp.open(
+    "GET",
+    "../controls/editProfileCK.php?$oldPassword=" +
+    oldPassword +
+    "&" +
+    "password=" +
+    password,
+    true
+  );
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("newpass").innerHTML = this.responseText;
+      // alert(this.responseText);
+      // alert("your updated password is : ".$result);
+    }
+  };
+  xhttp.send("oldPassword=" + oldPassword + "&" + "password=" + password);
+
+
+
+
 }

@@ -1,6 +1,8 @@
 <?php
 include_once 'db.php';
 
+
+
 function findDonor($blood, $city)
 {
     $con = getConnection();
@@ -34,7 +36,7 @@ function findDonor($blood, $city)
     }
 }
 
-function profileUpdate($name, $city, $email, $number, $availability)
+function profileUpdated($name, $city, $email, $number, $availability)
 {
     //$username = $_COOKIE['user'];
     // $users = getUser($_COOKIE['user']);
@@ -45,6 +47,7 @@ function profileUpdate($name, $city, $email, $number, $availability)
     // $user = mysqli_fetch_assoc($result);
 
     if ($result) {
+        //echo " succesfully updated your profile";
         header('location: ../views/donarHome.php');
     } else {
         echo 'Error!';
@@ -55,6 +58,7 @@ function changePassword($oldPassword, $password)
 {
     $username = $_COOKIE['user'];
 
+
     $con = getConnection();
     $sql = "select * from donarregistration where Email='{$username}' and password='{$oldPassword}';";
     $result = mysqli_query($con, $sql);
@@ -63,9 +67,11 @@ function changePassword($oldPassword, $password)
     if ($count == 1) {
         $sql = "update donarregistration set password = '{$password}' where Email = '{$username}';";
         $result = mysqli_query($con, $sql);
+        echo "your updated password is : " . $result;
 
-        if ($result) {
+        if ($result > 0) {
             // header('location: ../views/donarHome.php');
+            echo " Your New Password is : " . $result;
             return true;
         } else {
             return false;
@@ -73,5 +79,36 @@ function changePassword($oldPassword, $password)
     } else {
         return false;
     }
+
+    // password = $_GET['password'];
+    // echo " Your New Password is : " . $username;
+
+
+
+
 }
+
+
+function getMail($email)
+{
+
+    $con = getConnection();
+    $sql = "SELECT * FROM donarregistration where email='{$email}'";
+    $result = mysqli_query($con, $sql);
+    $emails = [];
+    if (mysqli_num_rows($result) > 0) {
+        echo '<span style="color: red;">Email already exists for new account</span>';
+    } else {
+        echo '<span style="color: green;">Email available</span>';
+    }
+    return $emails;
+
+}
+
+
+
+
+
+
+
 ?>

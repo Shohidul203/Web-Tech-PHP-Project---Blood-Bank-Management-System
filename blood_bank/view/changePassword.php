@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <section>
         <table border="0" width="100%">
             <tr>
-                <td width="25%"></td>
+                <td width="30%"></td>
                 <td>
                     <p style="color: red">
                         <?php echo $errMsg; ?>
@@ -95,6 +95,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <td width="25%"></td>
             </tr>
         </table>
+    </section>
+    <section>
+        <center>
+            <h2 id="newpass"> Your New Password is :</h2>
+        </center>
     </section>
 </body>
 

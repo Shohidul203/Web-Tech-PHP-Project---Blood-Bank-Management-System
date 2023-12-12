@@ -1,24 +1,36 @@
 <?php
 
 require_once('../models/db.php');
-$dbhost = 'localhost';
-$dbname = 'project';
-$dbuser = 'root';
-$dbpassword = '';
-
-$con = mysqli_connect($dbhost, $dbuser, $dbpassword, $dbname, );
-
-$name = $_POST["name"];
-$number = $_POST["number"];
-$email = $_POST["email"];
-$blood = $_POST["blood"];
-$password = $_POST["password"];
-$city = $_POST["city"];
-$availability = $_POST["availability"];
 
 
-$sql = "INSERT INTO donarregistration VALUES ('','$name', '$number', '$email', '$blood', '$password', '$city','$availability')";
-$result = mysqli_query($con, $sql);
+function register($name, $number, $email, $blood, $password, $city, $availability)
+{
+    $con = getConnection();
+    if ($name == "" || $number == "" || $email == "" || $blood == "" || $password == "" || $city == "" || $availability == "") {
+        return "Please fill up all the inputs!";
+    }
+    else {
+        
+    $sql = "INSERT INTO donarregistration VALUES ('','$name', '$number', '$email', '$blood', '$password', '$city','$availability')";
+    $result = mysqli_query($con, $sql);
+    }
+        
+}
+
+
+// $con = getConnection();
+
+// $name = $_POST["name"];
+// $number = $_POST["number"];
+// $email = $_POST["email"];
+// $blood = $_POST["blood"];
+// $password = $_POST["password"];
+// $city = $_POST["city"];
+// $availability = $_POST["availability"];
+
+
+// $sql = "INSERT INTO donarregistration VALUES ('','$name', '$number', '$email', '$blood', '$password', '$city','$availability')";
+// $result = mysqli_query($con, $sql);
 
 ?>
 

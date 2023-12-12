@@ -1,16 +1,12 @@
 <?php
 require_once('db.php');
 
+function registration()
+{
 
-// $name = $_POST["name"];
-// $number = $_POST["number"];
-// $email = $_POST["email"];
-// $blood = $_POST["blood"];
-// $password = $_POST["password"];
-// $city = $_POST["city"];
+}
 
 
-// return $username;
 
 function login($username, $password)
 {
@@ -40,6 +36,22 @@ function getUser($email)
 
     }
     return $username;
+}
+
+function getMaill($email)
+{
+
+    $con = getConnection();
+    $sql = "SELECT * FROM donarregistration where email='{$email}'";
+    $result = mysqli_query($con, $sql);
+    $emails = [];
+    if (mysqli_num_rows($result) > 0) {
+        echo '<span style="color: red;">Email already exists for new account</span>';
+    } else {
+        echo '<span style="color: green;">Email available</span>';
+    }
+    return $emails;
+
 }
 
 
@@ -103,7 +115,7 @@ function profileUpdate($name, $city, $email, $number, $availability)
 }
 
 
-function changePassword($oldPassword, $password)
+function changePasswordd($oldPassword, $password)
 {
     $username = $_COOKIE['user'];
 
@@ -126,7 +138,7 @@ function changePassword($oldPassword, $password)
     }
 }
 
-function findDonor($blood, $city)
+function findDonorr($blood, $city)
 {
     $con = getConnection();
     //$sql = "select * from donarregistration where BloodType = '{$blood}' and City = '{$city}'";
