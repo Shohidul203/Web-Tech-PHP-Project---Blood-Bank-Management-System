@@ -8,13 +8,12 @@ function register($name, $number, $email, $blood, $password, $city, $availabilit
     $con = getConnection();
     if ($name == "" || $number == "" || $email == "" || $blood == "" || $password == "" || $city == "" || $availability == "") {
         return "Please fill up all the inputs!";
+    } else {
+
+        $sql = "INSERT INTO donarregistration VALUES ('','$name', '$number', '$email', '$blood', '$password', '$city','$availability')";
+        $result = mysqli_query($con, $sql);
     }
-    else {
-        
-    $sql = "INSERT INTO donarregistration VALUES ('','$name', '$number', '$email', '$blood', '$password', '$city','$availability')";
-    $result = mysqli_query($con, $sql);
-    }
-        
+
 }
 
 

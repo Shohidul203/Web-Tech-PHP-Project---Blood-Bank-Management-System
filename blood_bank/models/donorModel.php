@@ -46,9 +46,17 @@ function profileUpdated($name, $city, $email, $number, $availability)
     $result = mysqli_query($con, $sql);
     // $user = mysqli_fetch_assoc($result);
 
+    echo "your updated value  <br> " . $name;
+    echo "<br>: " . $city;
+    echo "<br>" . $email;
+    echo "<br>" . $number;
+    echo "<br>" . $availability;
+
+
+
     if ($result) {
         //echo " succesfully updated your profile";
-        header('location: ../views/donarHome.php');
+        // header('location: ../views/donarHome.php');
     } else {
         echo 'Error!';
     }
@@ -67,11 +75,15 @@ function changePassword($oldPassword, $password)
     if ($count == 1) {
         $sql = "update donarregistration set password = '{$password}' where Email = '{$username}';";
         $result = mysqli_query($con, $sql);
-        echo "your updated password is : " . $result;
 
-        if ($result > 0) {
-            // header('location: ../views/donarHome.php');
-            echo " Your New Password is : " . $result;
+        echo " <br> <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       Your New Password is :" . $password;
+
+
+        if ($result) {
+            //header('location: ../views/personal_information.php.php');
+
+            // echo " your updated password is :  " . $password;
             return true;
         } else {
             return false;
@@ -79,6 +91,7 @@ function changePassword($oldPassword, $password)
     } else {
         return false;
     }
+
 
     // password = $_GET['password'];
     // echo " Your New Password is : " . $username;

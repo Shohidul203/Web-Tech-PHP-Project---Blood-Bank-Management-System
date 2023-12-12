@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <p style="color: red">
             <?php echo $msg; ?>
         </p>
-        <!-- <form name="registration" method="post" action="
+        <!-- <form name="registration" method="post" action=" 
         <?php
         // echo htmlspecialchars($_SERVER["PHP_SELF"]); 
         ?>"
@@ -53,6 +53,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <legend style="text-align: center">
                                 <h3>REGISTRATION</h3>
                             </legend>
+                            <label id="role" for="role">Role</label> <br>
+                            <input type="radio" name="role" id="role" value="Recipient"> Recipient</input>
+                            <input type="radio" name="role" id="role" value="Donor"> Donor</input>
+                            <input type="radio" name="role" id="role" value="Staff"> Staff</input>
+                            <br><br>
+
+
 
                             Name<br><input id="name" type="text" name="name" required><br>
 

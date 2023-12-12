@@ -33,11 +33,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (!$flag) {
-        include_once '../models/functional.php';
+        include_once '../models/donorModel.php';
         $result = changePassword($oldPassword, $password);
 
         if ($result) {
-            $errMsg = "Password Changed Successfully!";
+            $errMsg = " &nbsp;&nbsp; Password Changed Successfully!";
         } else {
             $errMsg = "Failed!";
         }
@@ -98,7 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </section>
     <section>
         <center>
-            <h2 id="newpass"> Your New Password is :</h2>
+            <!-- <h2 id="newpass"> Your New Password is :</h2> -->
         </center>
     </section>
 </body>

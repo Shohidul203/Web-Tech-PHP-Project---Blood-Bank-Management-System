@@ -1,5 +1,6 @@
 
 function registration() {
+  let role = document.getElementById("role").value;
   let name = document.getElementById("name").value;
   let number = document.getElementById("number").value;
   let email = document.getElementById("email").value;
@@ -8,7 +9,7 @@ function registration() {
   let city = document.getElementById("city").value;
   let availability = document.getElementById("availability").value;
 
-  if (name === "" || number === "" || email === "" || blood === "" || password === "" || city === "" || availability === "") {
+  if (role === "" || name === "" || number === "" || email === "" || blood === "" || password === "" || city === "" || availability === "") {
     alert("Please fill up all the inputs!");
     return;
   }
@@ -71,19 +72,7 @@ function findDonor() {
 }
 
 
-function editProfile() {
-  let name = document.getElementById("name").value;
-  let city = document.getElementById("number").value;
-  let email = document.getElementById("email").value;
-  let number = document.getElementById("city").value;
-  let availability = document.getElementById("availability").value;
 
-  if (name === "-" || number === "" || email === "" || city === "" || availability === "") {
-    alert("Please fill up all the inputs!");
-    return;
-  }
-
-}
 
 function changePassword() {
   let oldPassword = document.getElementById("oldPassword").value;
@@ -96,29 +85,65 @@ function changePassword() {
   } else if (password != password2) {
     alert("Password didn't match! Try again");
   }
+  else (password == password2)
+  {
+
+    let xhttp = new XMLHttpRequest();
+    xhttp.open(
+      "GET",
+      "../controls/editProfileCK.php?$oldPassword=" +
+      oldPassword +
+      "&" +
+      "password=" +
+      password,
+      true
+    );
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("newpass").innerHTML = this.responseText;
+        // alert(this.responseText);
+        // alert("your updated password is : ".$result);
+      }
+    };
+    xhttp.send("oldPassword=" + oldPassword + "&" + "password=" + password);
+
+  }
+
+
+  // let xhttp = new XMLHttpRequest();
+  // xhttp.open(
+  //   "GET",
+  //   "../controls/editProfileCK.php?$oldPassword=" +
+  //   oldPassword +
+  //   "&" +
+  //   "password=" +
+  //   password,
+  //   true
+  // );
+  // xhttp.onreadystatechange = function () {
+  //   if (this.readyState == 4 && this.status == 200) {
+  //     document.getElementById("newpass").innerHTML = this.responseText;
+  //     // alert(this.responseText);
+  //     // alert("your updated password is : ".$result);
+  //   }
+  // };
+  // xhttp.send("oldPassword=" + oldPassword + "&" + "password=" + password);
 
 
 
-  let xhttp = new XMLHttpRequest();
-  xhttp.open(
-    "GET",
-    "../controls/editProfileCK.php?$oldPassword=" +
-    oldPassword +
-    "&" +
-    "password=" +
-    password,
-    true
-  );
-  xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("newpass").innerHTML = this.responseText;
-      // alert(this.responseText);
-      // alert("your updated password is : ".$result);
-    }
-  };
-  xhttp.send("oldPassword=" + oldPassword + "&" + "password=" + password);
 
+}
 
+function editProfile() {
+  let name = document.getElementById("name").value;
+  let city = document.getElementById("number").value;
+  let email = document.getElementById("email").value;
+  let number = document.getElementById("city").value;
+  let availability = document.getElementById("availability").value;
 
+  if (name === "-" || number === "" || email === "" || city === "" || availability === "") {
+    alert("Please fill up all the inputs!");
+    return;
+  }
 
 }

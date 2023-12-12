@@ -49,7 +49,7 @@ $con = getConnection();
                                         <td><b>Name</td>
                                         <td><b>Number</td>
                                         <td><b>Email</td>
-                                        <td><b>Blood Type</td>
+                                        <td><b>Blood Group</td>
                                         <td><b>Password</td>
                                         <td><b>City</td>
                                         <td><b>Availability</b></td>
